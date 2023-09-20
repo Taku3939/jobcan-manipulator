@@ -1,5 +1,5 @@
 {
   "main": "dist/out.js",
-  "output": "jobcan.blob",
+  "output": "jobcan-manipulator.blob",
   "disableExperimentalSEAWarning": true
 }
