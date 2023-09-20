@@ -3,24 +3,6 @@ import { getEndDate } from "utils/date";
 import { delay } from "utils/sleep";
 const JOBCAN_MAN_HOUR_URL = "https://ssl.jobcan.jp/employee/man-hour-manage";
 
-// // 工数管理画面で情報の編集を行う
-// export const getProjectId = async (page: Page) => {
-// 	await page.goto(JOBCAN_MAN_HOUR_URL);
-// 	const selectElement = await page.$('select[name="projects[]"]'); // セレクト要素のセレクタを適切に設定
-
-// 	if (selectElement) {
-// 		// <select>要素が見つかった場合
-// 		const options = await page.evaluate(() => {
-// 			// call("projectMaster")
-// 			// console.log(projectMaster());
-// 		});
-
-// 		console.log(options); // オプションのテキストを表示
-// 	} else {
-// 		console.error("指定された<select>要素が見つかりませんでした。");
-// 	}
-// };
-
 export const completeManHours = async (page: Page, project_id: string, task_id: string) => {
 	for (let i = 1; i < getEndDate() + 1; i++) {
 		await page.goto(JOBCAN_MAN_HOUR_URL);
