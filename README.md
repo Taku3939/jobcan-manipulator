@@ -7,12 +7,21 @@
 Mac OS  
 Node v20.7.0
 
+## install
+
+brew tap を使って公開しました
+
+```
+brew tap taku3939/jobcan-manipulator
+brew install jobcan-manipulator
+```
+
 ## セットアップ
 
 [工数入力のページ](https://ssl.jobcan.jp/employee/man-hour-manage)に移動して、projects コマンドで
 自分の普段入力しているプロジェクト id と taskid を取得します。(JOBCAN_HEADLESS を false にすることでブラウザを確認できます)
 
-リリースからプロジェクトをダウンロードして環境変数に情報を記入してください
+取得した情報を環境変数に記入してください
 
 | キー              | 内容                                                                         |
 | ----------------- | ---------------------------------------------------------------------------- |
@@ -43,13 +52,13 @@ bin ディレクトリをパスを通すなどして次のコマンドを実行�
 プロジェクトデータの取得
 
 ```bash
-jobcan projects
+jobcan-manipulator projects
 ```
 
 工数の自動登録
 
 ```bash
-jobcan complete
+jobcan-manipulator complete
 ```
 
 ## ビルド
