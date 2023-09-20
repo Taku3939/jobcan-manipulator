@@ -1,10 +1,11 @@
 import { Page } from "puppeteer";
-import { getEndDate } from "utils/date";
 import { delay } from "utils/sleep";
+import { getDaysInThisMonth } from "utils/date";
+
 const JOBCAN_MAN_HOUR_URL = "https://ssl.jobcan.jp/employee/man-hour-manage";
 
 export const completeManHours = async (page: Page, project_id: string, task_id: string) => {
-	for (let i = 1; i < getEndDate() + 1; i++) {
+	for (let i = 1; i < getDaysInThisMonth() + 1; i++) {
 		await page.goto(JOBCAN_MAN_HOUR_URL);
 
 		//モーダルを開く
