@@ -4,6 +4,7 @@
   "description": "",
   "scripts": {
     "complete": "ts-node -r tsconfig-paths/register ./src/commands/editManHours.ts",
+    "build": "esbuild ./src/commands/editManHours.ts --bundle --outfile=./bin/out.js --platform=node && mkdir -p ./bin/ && cp ./public/* .env ./bin/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -14,6 +15,7 @@
     "playwright": "^1.38.0"
   },
   "devDependencies": {
+    "esbuild": "0.19.3",
     "rome": "^12.1.3",
     "ts-loader": "^9.4.4",
     "tsconfig-paths": "^4.2.0",

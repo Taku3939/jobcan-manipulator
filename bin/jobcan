@@ -1,7 +1,0 @@
-#!/bin/sh
-
-if [ $1 = "complete" ]; then
-  npm run complete
-else
-  echo "無効なコマンドです"
-fi

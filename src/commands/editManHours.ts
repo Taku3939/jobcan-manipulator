@@ -10,10 +10,11 @@ const PASSWORD = process.env.JOBCAN_PASSWORD as string;
 //自分のプロジェクトIDとタスクIDを入力
 const PROJECT_ID = process.env.JOBCAN_PROJECT_ID as string;
 const TASK_ID = process.env.JOBCAN_TASK_ID as string;
+const HEADLESS = (process.env.HEADLESS as string) === "true";
 
 //工数を自動入力
 (async () => {
-	const browser = await chromium.launch({ headless: false });
+	const browser = await chromium.launch({ headless: HEADLESS });
 	const page = await browser.newPage();
 	await loginPage(page, EMAIL, PASSWORD);
 	await completeManHours(page, PROJECT_ID, TASK_ID);
