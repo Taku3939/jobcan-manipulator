@@ -1,4 +1,4 @@
-import { Page } from "puppeteer";
+import { Page } from "playwright";
 import { delay } from "utils/sleep";
 import { getDaysInThisMonth } from "utils/date";
 import nqdm from "nqdm";
@@ -12,30 +12,28 @@ export const completeManHours = async (page: Page, project_id: string, task_id: 
 		//モーダルを開く
 		await page.click(`.table > tbody > tr:nth-child(${(v + 1).toString()}) > .align-middle > .btn`);
 
-		//適当に1s待つ
-		await delay(1000);
+		//適当に0.5s待つ
+		await delay(500);
 
 		//登録済みの工数があれば全て削除する
-		await page.waitForSelector("span.jbc-btn-danger");
-		let buttons = await page.$$("span.jbc-btn-danger");
-		while (buttons.length > 1) {
-			await page.evaluate((element) => {
-				element.click();
-			}, buttons[0]);
+		let buttons = await page.locator("span.jbc-btn-danger");
+		while ((await buttons?.count()) > 1) {
+			buttons.first().click();
 
 			await page.click("body");
-			buttons = await page.$$("span.jbc-btn-danger");
+			buttons = await page.locator("span.jbc-btn-danger");
 		}
 
 		//新たにプロジェクトを登録する
 		await page.click(".table > tbody > tr:nth-child(1) > .align-middle > .btn");
 		await page.waitForSelector(".table > .man-hour-table-edit > .daily > .align-middle:nth-child(2) > .form-control");
-		await page.select(
-			".table > .man-hour-table-edit > .daily > .align-middle:nth-child(2) > .form-control",
-			project_id,
-		);
+		await page
+			.locator(".table > .man-hour-table-edit > .daily > .align-middle:nth-child(2) > .form-control")
+			.selectOption(project_id);
 		await page.waitForSelector(".table > .man-hour-table-edit > .daily > .align-middle:nth-child(3) > .form-control");
-		await page.select(".table > .man-hour-table-edit > .daily > .align-middle:nth-child(3) > .form-control", task_id);
+		await page
+			.locator(".table > .man-hour-table-edit > .daily > .align-middle:nth-child(3) > .form-control")
+			.selectOption(task_id);
 
 		//時間を取得する
 		const titleSelector = await page.$("h5.modal-title");

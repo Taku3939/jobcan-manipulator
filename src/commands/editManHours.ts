@@ -1,6 +1,6 @@
 import { completeManHours } from "core/manHours";
 import { loginPage } from "core/login";
-import puppeteer from "puppeteer";
+import { chromium } from "playwright";
 import "dotenv/config";
 
 //ログイン情報
@@ -13,7 +13,7 @@ const TASK_ID = process.env.JOBCAN_TASK_ID as string;
 
 //工数を自動入力
 (async () => {
-	const browser = await puppeteer.launch({ headless: false });
+	const browser = await chromium.launch({ headless: false });
 	const page = await browser.newPage();
 	await loginPage(page, EMAIL, PASSWORD);
 	await completeManHours(page, PROJECT_ID, TASK_ID);

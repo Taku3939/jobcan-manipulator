@@ -1,4 +1,4 @@
-import { Page } from "puppeteer";
+import { Page } from "playwright";
 
 const JOBCAN_LOGIN_URL = "https://id.jobcan.jp/users/sign_in?app_key=atd";
 
