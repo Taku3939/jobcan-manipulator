@@ -1,15 +1,16 @@
 import { Page } from "puppeteer";
 import { delay } from "utils/sleep";
 import { getDaysInThisMonth } from "utils/date";
+import nqdm from "nqdm";
 
 const JOBCAN_MAN_HOUR_URL = "https://ssl.jobcan.jp/employee/man-hour-manage";
 
 export const completeManHours = async (page: Page, project_id: string, task_id: string) => {
-	for (let i = 1; i < getDaysInThisMonth() + 1; i++) {
+	for (const v of nqdm(getDaysInThisMonth())) {
 		await page.goto(JOBCAN_MAN_HOUR_URL);
 
 		//モーダルを開く
-		await page.click(`.table > tbody > tr:nth-child(${i.toString()}) > .align-middle > .btn`);
+		await page.click(`.table > tbody > tr:nth-child(${(v + 1).toString()}) > .align-middle > .btn`);
 
 		//適当に1s待つ
 		await delay(1000);
