@@ -43,7 +43,7 @@ export const completeManHours = async (page: Page, project_id: string, task_id: 
 
 		//0ならスキップ
 		if (!title || title === "00:00") continue;
-		await page.type(".table > .man-hour-table-edit > .daily > .align-middle > .form-control-sm", title);
+		await page.locator(".table > .man-hour-table-edit > .daily > .align-middle > .form-control-sm").fill(title);
 
 		//保存
 		await page.click("body");
