@@ -4,8 +4,8 @@
   "description": "ジョブカンの自動操作",
   "scripts": {
     "start": "ts-node -r tsconfig-paths/register ./src/index.ts",
-    "projects": "ts-node -r tsconfig-paths/register ./src/commands/index.ts projects",
-    "complete": "ts-node -r tsconfig-paths/register ./src/commands/complete.ts complete",
+    "projects": "ts-node -r tsconfig-paths/register ./src/index.ts projects",
+    "complete": "ts-node -r tsconfig-paths/register ./src/index.ts complete",
     "build-js": "esbuild ./src/index.ts --bundle --outfile=./dist/out.js --platform=node",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
