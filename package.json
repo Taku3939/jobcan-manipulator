@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "complete": "ts-node -r tsconfig-paths/register ./src/commands/editManHours.ts",
-    "build": "esbuild ./src/commands/editManHours.ts --bundle --outfile=./bin/out.js --platform=node && mkdir -p ./bin/ && cp ./public/* .env ./bin/",
+    "start": "ts-node -r tsconfig-paths/register ./src/index.ts",
+    "projects": "ts-node -r tsconfig-paths/register ./src/commands/index.ts projects",
+    "complete": "ts-node -r tsconfig-paths/register ./src/commands/complete.ts complete",
+    "build-js": "esbuild ./src/index.ts --bundle --outfile=./dist/out.js --platform=node",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

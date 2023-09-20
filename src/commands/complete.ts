@@ -1,5 +1,5 @@
-import { completeManHours } from "core/manHours";
-import { loginPage } from "core/login";
+import { completeManHours } from "manipurator/manHours";
+import { loginPage } from "manipurator/login";
 import { chromium } from "playwright";
 import "dotenv/config";
 
@@ -13,10 +13,10 @@ const TASK_ID = process.env.JOBCAN_TASK_ID as string;
 const HEADLESS = (process.env.HEADLESS as string) === "true";
 
 //工数を自動入力
-(async () => {
+export async function exe() {
 	const browser = await chromium.launch({ headless: HEADLESS });
 	const page = await browser.newPage();
 	await loginPage(page, EMAIL, PASSWORD);
 	await completeManHours(page, PROJECT_ID, TASK_ID);
 	await browser.close();
-})();
+}
