@@ -11,9 +11,16 @@ Node v20.7.0
 
 brew tap を使って公開しました
 
-```
+```bash
 brew tap taku3939/jobcan-manipulator
 brew install jobcan-manipulator
+```
+
+chrome もしくは playwright が入っていない人はこちらも入れてください
+
+```bash
+# playwrightを導入する場合
+npx -y playwright install
 ```
 
 ## セットアップ
