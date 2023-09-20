@@ -10,9 +10,9 @@ Node v20.7.0
 ## セットアップ
 
 [工数入力のページ](https://ssl.jobcan.jp/employee/man-hour-manage)に移動して、projects コマンドで
-自分の普段入力しているプロジェクト id と taskid を取得します。(HEADLESS を false にすることでブラウザの実行状況を確認できます)
+自分の普段入力しているプロジェクト id と taskid を取得します。(JOBCAN_HEADLESS を false にすることでブラウザを確認できます)
 
-リリースからプロジェクトをダウンロードして.env に情報を記入する
+リリースからプロジェクトをダウンロードして環境変数に情報を記入してください
 
 | キー              | 内容                                                                         |
 | ----------------- | ---------------------------------------------------------------------------- |
@@ -20,7 +20,21 @@ Node v20.7.0
 | JOBCAN_PASSWORD   | ジョブカンにログインする際に使うパスワード                                   |
 | JOBCAN_PROJECT_ID | ジョブカンで工数入力する際に選択する project_id(projects コマンドで確認する) |
 | JOBCAN_TASK_ID    | ジョブカンで工数入力する際に選択する task_id (projects コマンドで確認する)   |
-| HEADLESS          | ヘッドレスブラウザを立ち上げるかどうか(true / false)                         |
+| JOBCAN_HEADLESS   | ヘッドレスブラウザを立ち上げるかどうか(true / false)                         |
+
+例) ~/.zshrc
+
+```bash
+#ログイン情報
+export JOBCAN_EMAIL="sample@example.com"
+export JOBCAN_PASSWORD="hogehoge"
+
+#工数入力の情報
+export JOBCAN_PROJECT_ID="11"
+export JOBCAN_TASK_ID="111"
+
+export JOBCAN_HEADLESS="true"
+```
 
 ## 実行
 

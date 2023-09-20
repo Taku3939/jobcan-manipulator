@@ -10,7 +10,7 @@ const PASSWORD = process.env.JOBCAN_PASSWORD as string;
 //自分のプロジェクトIDとタスクIDを入力
 const PROJECT_ID = process.env.JOBCAN_PROJECT_ID as string;
 const TASK_ID = process.env.JOBCAN_TASK_ID as string;
-const HEADLESS = (process.env.HEADLESS as string) === "true";
+const HEADLESS = (process.env.JOBCAN_HEADLESS as string) === "true";
 
 //工数を自動入力
 export async function exe() {

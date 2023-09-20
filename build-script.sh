@@ -11,6 +11,7 @@ cd `dirname $0`
 npm run build-js
 
 # バイナリ実行可能な形式に変換
+mkdir -p bin
 node --experimental-sea-config sea-config.json
 cp $(command -v node) ./bin/jobcan
 codesign --remove-signature ./bin/jobcan
@@ -23,6 +24,3 @@ codesign --sign - bin/jobcan
 # 不要なファイルの削除
 rm -r dist
 rm jobcan.blob
-
-# 環境変数ファイルの作成
-cp .env.example ./bin/.env
