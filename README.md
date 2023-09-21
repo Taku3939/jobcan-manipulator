@@ -30,25 +30,17 @@ npx -y playwright install
 
 取得した情報を環境変数に記入してください
 
-| キー              | 内容                                                                         |
-| ----------------- | ---------------------------------------------------------------------------- |
-| JOBCAN_EMAIL      | ジョブカンにログインする際に使うメールアドレス                               |
-| JOBCAN_PASSWORD   | ジョブカンにログインする際に使うパスワード                                   |
-| JOBCAN_PROJECT_ID | ジョブカンで工数入力する際に選択する project_id(projects コマンドで確認する) |
-| JOBCAN_TASK_ID    | ジョブカンで工数入力する際に選択する task_id (projects コマンドで確認する)   |
-| JOBCAN_HEADLESS   | ヘッドレスブラウザを立ち上げるかどうか(true / false)                         |
+| キー            | 内容                                                 |
+| --------------- | ---------------------------------------------------- |
+| JOBCAN_EMAIL    | ジョブカンにログインする際に使うメールアドレス       |
+| JOBCAN_PASSWORD | ジョブカンにログインする際に使うパスワード           |
+| JOBCAN_HEADLESS | ヘッドレスブラウザを立ち上げるかどうか(true / false) |
 
 例) ~/.zshrc
 
 ```bash
-#ログイン情報
 export JOBCAN_EMAIL="sample@example.com"
 export JOBCAN_PASSWORD="hogehoge"
-
-#工数入力の情報
-export JOBCAN_PROJECT_ID="11"
-export JOBCAN_TASK_ID="111"
-
 export JOBCAN_HEADLESS="true"
 ```
 
@@ -65,7 +57,7 @@ jobcan-manipulator projects
 工数の自動登録
 
 ```bash
-jobcan-manipulator complete
+jobcan-manipulator complete <ProjectId> <TaskId>
 ```
 
 ## ビルド

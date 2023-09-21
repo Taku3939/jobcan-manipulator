@@ -6,8 +6,6 @@ import "dotenv/config";
 //ログイン情報
 const EMAIL = process.env.JOBCAN_EMAIL as string;
 const PASSWORD = process.env.JOBCAN_PASSWORD as string;
-
-//自分のプロジェクトIDとタスクIDを入力
 const HEADLESS = (process.env.JOBCAN_HEADLESS as string) === "true";
 
 //工数を自動入力
