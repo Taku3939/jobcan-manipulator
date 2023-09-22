@@ -23,12 +23,7 @@ chrome もしくは playwright が入っていない人はこちらも入れて�
 npx -y playwright install
 ```
 
-## セットアップ
-
-[工数入力のページ](https://ssl.jobcan.jp/employee/man-hour-manage)に移動して、projects コマンドで
-自分の普段入力しているプロジェクト id と taskid を取得します。(JOBCAN_HEADLESS を false にすることでブラウザを確認できます)
-
-取得した情報を環境変数に記入してください
+自分のログイン情報を環境変数に記入してください
 
 | キー            | 内容                                                 |
 | --------------- | ---------------------------------------------------- |
@@ -41,7 +36,7 @@ npx -y playwright install
 ```bash
 export JOBCAN_EMAIL="sample@example.com"
 export JOBCAN_PASSWORD="hogehoge"
-export JOBCAN_HEADLESS="true"
+export JOBCAN_HEADLESS="false"
 ```
 
 ## 実行
@@ -49,6 +44,9 @@ export JOBCAN_HEADLESS="true"
 bin ディレクトリをパスを通すなどして次のコマンドを実行する
 
 プロジェクトデータの取得
+
+[工数入力のページ](https://ssl.jobcan.jp/employee/man-hour-manage)に移動して、
+自分の普段入力しているプロジェクト id と taskid を取得してください。次で使います。
 
 ```bash
 jobcan-manipulator projects
