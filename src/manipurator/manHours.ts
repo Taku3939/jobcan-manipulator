@@ -108,5 +108,8 @@ export const completeManHours = async (page: Page, project_id: string, task_id: 
 		//保存
 		await page.click("body");
 		await page.click("#save");
+
+		//適当に0.5s待つ
+		await delay(500);
 	}
 };
